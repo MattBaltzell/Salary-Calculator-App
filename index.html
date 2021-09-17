@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+    <title>Salary Calculator</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <h1>Salary Calculator</h1>
+      <div class="form-wrapper">
+            <div class="form">
+                <div class="inputs">
+                    <label for="salary">How Many Dollars Per Hour?</label>
+                    <input type="number" class="input" id="salary" />
+                </div>
+                <div class="inputs">    
+                    <label for="hours">How Many Hours Per Week?</label>
+                    <input type="number" class="input" id="hours" />
+                </div>
+            </div>
+        
+            <button type="submit" class="btn submit" id="submit-btn">Submit</button>
+      </div>
+      <div class="display" id="display">
+            <div class="display_weekly display_container">
+                <h2>Weekly</h2>
+                <p class="result">$ <span id="wk-result-g"></span><br>Per Week</p>
+                <p class="result">$ <span id="wk-result-n"></span><br>After Federal Taxes</p>
+             </div>
+            <div class="display_monthly display_container">
+                <h2>Monthly</h2>
+                <p class="result">$ <span id="mo-result-g"></span><br>Per Month</p>
+                <p class="result">$ <span id="mo-result-n"></span><br>After Federal Taxes</p>
+            </div>
+            <div class="display_annual display_container">
+                <h2>Annual</h2>
+                <p class="result">$ <span id="an-result-g"></span><br>Per Year</p>
+                <p class="result">$ <span id="an-result-n"></span><br>After Federal Taxes</p>
+            </div>
+    </div>
+    <div class="error" id="error">hi</div>
+    </div>
+  </body>
+</html>
