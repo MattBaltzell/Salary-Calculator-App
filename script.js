@@ -14,7 +14,7 @@ const wk = () => n * h;
 const mo = () => (n * h * 52) / 12;
 const yr = () => n * h * 52;
 
-const tax = () => yr(n, h) * 0.12 + 1990;
+const tax = () => (yr(n, h)-19900) * 0.12 + 1990;
 
 const wkNet = () => wk(n, h) - tax(n, h) / 52;
 const moNet = () => mo(n, h) - tax(n, h) / 12;
