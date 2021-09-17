@@ -14,7 +14,7 @@ const wk = () => n * h;
 const mo = () => (n * h * 52) / 12;
 const yr = () => n * h * 52;
 
-const tax = () => (yr(n, h)-19900) * 0.12 + 1990;
+let tax;
 
 const wkNet = () => wk(n, h) - tax(n, h) / 52;
 const moNet = () => mo(n, h) - tax(n, h) / 12;
@@ -26,6 +26,7 @@ const submit = submitButton.addEventListener("click", () => {
   n = Number(document.getElementById("salary").value);
   h = Number(document.getElementById("hours").value);
   if (n !== 0 && h !== 0) {
+    calculateTaxes();
     showSalaries();
   } else numError();
 });
@@ -37,6 +38,24 @@ const showSalaries = () => {
     errSect.style.display = "none";
   } else numError();
 };
+
+const calculateTaxes = () => {
+  if(yr(h,n) < 9501){
+    tax = () => yr(n, h) * 0.10;
+  } else if(yr(h,n) > 9950 && yr(h,n) < 40526){
+    tax = () => (yr(n, h)-9950) * 0.12 + 995;
+  }else if(yr(h,n) > 40525 && yr(h,n) < 86376){
+    tax = () => (yr(n, h)-40525) * 0.22 + 4664;
+  } else if(yr(h,n) > 86375 && yr(h,n) < 164926){
+    tax = () => (yr(n, h)-86375) * 0.24 + 29502;
+  } else if(yr(h,n) > 164925 && yr(h,n) < 209426){
+    tax = () => (yr(n, h)-164925) * 0.32 + 33603;
+  }else if(yr(h,n) > 209425 && yr(h,n) < 523601){
+    tax = () => (yr(n, h)-209425) * 0.35 + 47843;
+  }else if(yr(h,n) > 523600){
+    tax = () => (yr(n, h)-523600) * 0.37 + 157804.25;
+  } else tax = () => yr(n, h) * 0;
+}
 
 const calculateSalaries = () => {
   annualResultGross.textContent = Math.round(yr(n, h)).toLocaleString();
