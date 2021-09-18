@@ -145,6 +145,7 @@ span {
   display: none;
   color: red;
   font-size: 1.4rem;
+  text-align: center;
 }
 
 @media screen and (min-width: 540px) {
